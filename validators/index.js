@@ -50,3 +50,16 @@ exports.userSignupValidator = (req, res, next) => {
     // proceed to next middleware
     next();
 }
+
+exports.userUpdateValidator = (req, res, next) => {
+    req.check("email", "Email can not be updated").isEmpty();
+        // check for erros
+        const errors = req.validationErrors();
+        // if error show the first one as they happen
+        if (errors) {
+            const firstError = errors.map(error => error.msg)[0];
+            return res.status(400).json({error: firstError});
+        }
+    // proceed to next middleware
+    next();
+}

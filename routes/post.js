@@ -1,6 +1,6 @@
 const express = require('express');
-const { getPosts, createPost } = require('../controllers/post')
-const { requireSignin } = require('../controllers/auth')
+const { getPosts, createPost } = require('../controllers/post');
+const { requireSignin } = require('../controllers/auth');
 const { createPostValitador } = require('../validators');
 
 const router = express.Router();
